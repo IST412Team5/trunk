@@ -20,7 +20,7 @@ public class Utility {
             FileOutputStream FOS = new FileOutputStream(filePath);
             OutputStreamWriter OSW = new OutputStreamWriter(FOS, "utf-8");
             BufferedWriter bw = new BufferedWriter(OSW);
-            bw.write(fileContents);
+            bw.write(fileContents.replace("\n","\r\n"));
             bw.close();
 
         } catch (Exception e) {
@@ -28,9 +28,26 @@ public class Utility {
         }
     }
 
+    public static String getContentsOfFile(String filePath)
+    {
+        StringBuilder outString = new StringBuilder();
+        BufferedReader buff = null;
+        try {
+            buff = new BufferedReader(new FileReader(filePath));
+            String str;
+            while ((str = buff.readLine()) != null) {
+                outString.append(str +"\n");
+            }
+        } catch (IOException e) {
+        } finally {
+        try { buff.close(); } catch (Exception ex) { }
+        }        
+        return outString.toString();
+    }
+   
     public static String getConfigFile() {
         String AbsolutePath = new File(".").getAbsolutePath();
-        return AbsolutePath + "appconfig.properties";
+        return AbsolutePath + "config.properties";
     }
 
     public static void setConfigItem(String Item, String value) {
@@ -45,7 +62,7 @@ public class Utility {
         } catch (FileNotFoundException ex) {
         // file does not exist
         } catch (IOException ex) {
-    // I/O error
+        // I/O error
         }
     }
 
@@ -70,6 +87,14 @@ public class Utility {
     }
 
     public static boolean isNullOrWhiteSpace(String a) {
-        return a == null || (a.length() > 0 && a.trim().length() <= 0);
+        if (a!= null)
+        {
+            String b = a.replace("\r","");
+            return b == null || (b.length() > 0 && b.trim().length() <= 0);
+        }
+        else
+        {
+            return true;
+        }
     }
 }

@@ -19,25 +19,29 @@ public class RunConfiguration extends JPanel{
     public RunConfiguration()
     {
         // border layout? maybe
-        GridLayout GL = new GridLayout(0,2);
-        super.setLayout(GL);
-        GL.setHgap(5);
-        GL.setVgap(5);
-        GL.layoutContainer(this);
+        BorderLayout BL = new BorderLayout();
+        super.setLayout(BL);
+        BL.layoutContainer(this);
         
         JButton btnRunSingle = new JButton();
         btnRunSingle.setBackground(Color.GREEN);
         btnRunSingle.setForeground(Color.darkGray);
         btnRunSingle.setText("Run Single");
         
-        this.add(btnRunSingle);
+        this.add(btnRunSingle,"East");
 
         JButton btnRunBatch = new JButton();
         btnRunBatch.setBackground(Color.RED);
         btnRunBatch.setForeground(Color.WHITE);
         btnRunBatch.setText("Run Batch");
     
-        this.add(btnRunBatch);
+        this.add(btnRunBatch,"West");
+        
+        JPanel JP = new JPanel();
+        JP.setLayout(new GridLayout(0,2));
+        JP.setBackground(Color.BLUE);
+        
+        this.add(JP);
     }
     
     ActionListener ALBatchRun = new ActionListener()

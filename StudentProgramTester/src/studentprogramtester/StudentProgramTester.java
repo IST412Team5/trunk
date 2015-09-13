@@ -37,19 +37,6 @@ public final class StudentProgramTester extends JFrame {
     }
 
     private void initTabbedDoc() {
-//        ChangeListener changeListener = new ChangeListener()
-//        {
-//            public void stateChanged(ChangeEvent ce)
-//            {
-//                JTabbedPane sourceTabbedPane = (JTabbedPane) ce.getSource();
-//                int idx = sourceTabbedPane.getSelectedIndex();
-//                sourceTabbedPane.setSelectedIndex(idx);
-//                
-//            }
-//        };
-//
-//        tp.addChangeListener(changeListener);
-
         tp = new JTabbedPane() {
             public Dimension getPreferredSize() {
                 return new Dimension(FRAME_WIDTH, FRAME_HEIGHT);
@@ -74,4 +61,6 @@ public final class StudentProgramTester extends JFrame {
         this.pack();
     }
 
+    
+    
 }

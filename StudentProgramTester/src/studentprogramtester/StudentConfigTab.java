@@ -1,25 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package studentprogramtester;
 
-import java.awt.Graphics;
+import java.awt.*;
 import javax.swing.*;
+import java.io.*;
 
+public class StudentConfigTab extends JPanel {
 
-/**
- *
- * @author marcc_000
- */
-public class StudentConfigTab extends JPanel 
-{
-    @Override
-    protected void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        g.drawString("Eventually this will contain some stuff for choosing members of the class",20,20);
+    public StudentConfigTab() {
+        super();
+        BorderLayout BL = new BorderLayout();
+        super.setLayout(BL);
+        BL.layoutContainer(this);
     }
 
+    private void loadStudents() {
+        String file = Utility.getConfigItem("StudentFilePath", "C:\\java\\students.txt");
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line = null;
+            StringBuilder stringBuilder = new StringBuilder();
+            String ls = System.getProperty("line.separator");
+
+            try {
+                while ((line = reader.readLine()) != null) {
+
+                }
+            } catch (IOException IOE) {
+            }
+        } catch (FileNotFoundException fnfex) {
+        }
+    }
 }

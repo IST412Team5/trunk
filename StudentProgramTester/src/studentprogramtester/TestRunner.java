@@ -1,4 +1,10 @@
-package Jtester;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package studentprogramtester;
+
 
 import java.io.*;
 import java.util.*;
@@ -20,22 +26,26 @@ public class TestRunner
   private String inputFileName;
   private String outputFileName;
   private int success;
-    
-  public TestRunner(int numbr, String nme, String hndl, String pth, String clsPath, String srcPath, String stdPath, String tstDataPath, String argFileName, String tstInputFileName, String inFileStub,String outFileName)
+  private DataObject testDO;
+  
+  public TestRunner(DataObject d)
   {
-    number = numbr;
-    name = nme;
-    handle = hndl;
-    path = pth;
-    classPath = clsPath;
-    sourcePath = srcPath;
-    studentPath = stdPath;
-    testDataPath = tstDataPath;
-    argsFileName = argFileName;
-    testInputFileName = tstInputFileName;
-    inputFileStub = inFileStub;
-    outputFileName = outFileName;
-    success = 1;  // Outcome of compilation, success = 0
+     
+     testDO = d;
+    number = d.getNumbr();
+    name = d.getNme();
+    handle = d.getHndl();
+    path = d.getPth();
+    classPath = d.getClsPath();
+    sourcePath = d.getSrcPath();
+    studentPath = d.getStdPath();
+    testDataPath = d.getTestDataPath();
+    argsFileName = d.getArgsFileName();
+    testInputFileName = d.getTestInputFileName();
+    inputFileStub = d.getInputFileStub();
+    inputFileName = d.getInputFileName();
+    outputFileName = d.getOutFileName();
+    success = d.getSuccess();  // Outcome of compilation, success = 0
   }
 
   public void runJava()
@@ -45,7 +55,7 @@ public class TestRunner
     long currentTime;
     long timeOut = 60000000000L;
 */
-     
+     testDO.showDataObject();
     try
     {
 //    set up input files
@@ -176,7 +186,7 @@ public class TestRunner
     }
     catch(IOException ioe)
     {
-      System.out.println("Runtime IOException");
+      System.out.println("hey dude, TestRunner.java is throwing a Runtime IOException, what changes: " + testDO.showDataObject());
     } 
 
     catch(InterruptedException ie)

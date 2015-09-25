@@ -1,4 +1,7 @@
+package Jtester;
+
 import java.io.*;
+
 
 public class FileFilter implements FilenameFilter
 {  

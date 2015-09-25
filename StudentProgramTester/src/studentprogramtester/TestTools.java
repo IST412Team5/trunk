@@ -1,8 +1,16 @@
-package Jtester;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package studentprogramtester;
+
 
 import java.io.*;
 import java.util.*;
-import java.lang.ProcessBuilder.Redirect;
+
+
+
 
 public class TestTools
 {
@@ -33,12 +41,14 @@ public class TestTools
 //  Also returns a null pointer if the directory
 //  doesn't exist. 
     {
-      cwdPath = System.getProperty("user.dir");
-//    System.out.println("cdFile - current working directory null");
+     // cwdPath = System.getProperty("user.dir");
+      cwdPath = "C:\\java\\src\\program-test-242-1";   
+        
+  // System.out.println("cdFile - current working directory null");
       cwd = new File(cwdPath);
       cwdPath =  cwd.getAbsolutePath();
     }
-//  System.out.println(cwdPath);
+  System.out.println("(TestTools.java line 47)  cwdPath: " + cwdPath);
 //  dir(cwd);
     
     try

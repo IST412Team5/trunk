@@ -37,19 +37,6 @@ public final class StudentProgramTester extends JFrame {
     }
 
     private void initTabbedDoc() {
-//        ChangeListener changeListener = new ChangeListener()
-//        {
-//            public void stateChanged(ChangeEvent ce)
-//            {
-//                JTabbedPane sourceTabbedPane = (JTabbedPane) ce.getSource();
-//                int idx = sourceTabbedPane.getSelectedIndex();
-//                sourceTabbedPane.setSelectedIndex(idx);
-//                
-//            }
-//        };
-//
-//        tp.addChangeListener(changeListener);
-
         tp = new JTabbedPane() {
             public Dimension getPreferredSize() {
                 return new Dimension(FRAME_WIDTH, FRAME_HEIGHT);
@@ -63,7 +50,11 @@ public final class StudentProgramTester extends JFrame {
         WelcomeTab WT = new WelcomeTab();
         AppConfig AC = new AppConfig();
         StudentConfigTab SCT = new StudentConfigTab();
-        RunConfiguration RCT = new RunConfiguration();
+        
+        RunConfig RCT = new RunConfig();
+        studentprogramtester.App.runCon = RCT;  // to access the panel
+        //RunConfiguration RCT = new RunConfiguration();
+        
         tp.add("Welcome",WT);
         tp.add("Application Configuration", AC);
         tp.add("Program IO Configuration", ICT);
@@ -74,4 +65,6 @@ public final class StudentProgramTester extends JFrame {
         this.pack();
     }
 
+    
+    
 }

@@ -24,7 +24,15 @@ public class AppConfig extends JPanel
         GL.layoutContainer(this);
         
         this.add(new JLabel("Student File Location"));
-        this.add(new JLabel("Directory Lookup CONTROL goes HERE"));
+
+            JFileChooser Studentchooser = new JFileChooser();
+            Studentchooser.setCurrentDirectory(new java.io.File("."));
+            //Studentchooser.setDialogTitle("choosertitle");
+            //Studentchooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //Studentchooser.setAcceptAllFileFilterUsed(false);
+        
+        
+        this.add(Studentchooser);
         
         this.add(new JLabel("JRE Run Time Location"));
         this.add(new JLabel("Directory Lookup CONTROL goes HERE"));

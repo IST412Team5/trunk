@@ -33,16 +33,14 @@ public class IOConfigTab extends JPanel
         GL.setHgap(5);
         GL.setVgap(5);
         GL.layoutContainer(this);
-        
 
-        
         JLabel lblCmdLineArgs = new JLabel("Command Line Arguments");
         tbCMDLineArgs = new JTextArea();
-        tbCMDLineArgs.setText("Factorial 5\nFactorial 10\nArraySearcher 4 4 2 3 1 5\nArraySearcher 3 4 2 3 4 5\nTestProgram");
+        tbCMDLineArgs.setText(Utility.getContentsOfFile(Utility.getConfigItem("ArgsTextFile", "C:\\java\\src\\args.txt")));
 
         JLabel lblTestInput = new JLabel("System Inputs");
         tbTestInput = new JTextArea();
-        tbTestInput.setText("None\nNone\nNone\nNone\nNone");
+        tbTestInput.setText(Utility.getContentsOfFile(Utility.getConfigItem("TestInputTextFile", "C:\\java\\src\\testinput.txt")));
         
         btnSave = new JButton("Save");
         btnSave.addActionListener(ALSaveButton);
@@ -65,8 +63,8 @@ public class IOConfigTab extends JPanel
     {
         public void actionPerformed(ActionEvent ae)
         {
-            Utility.writeFile("c:\\java\\src\\args.txt", tbCMDLineArgs.getText());
-            Utility.writeFile("c:\\java\\src\\TestInput.txt", tbTestInput.getText());
+            Utility.writeFile(Utility.getConfigItem("ArgsTextFile", "C:\\java\\src\\args.txt"), tbCMDLineArgs.getText());
+            Utility.writeFile(Utility.getConfigItem("TestInputTextFile", "C:\\java\\src\\testinput.txt"), tbTestInput.getText());
         }
 
     };

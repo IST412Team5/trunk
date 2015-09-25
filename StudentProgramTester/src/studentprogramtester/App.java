@@ -5,6 +5,8 @@
  */
 package studentprogramtester;
 
+import studentprogramtester.controler.DataObject;
+
 /**
  *
  * @author marcc_000

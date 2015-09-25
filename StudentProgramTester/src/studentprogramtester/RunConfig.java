@@ -8,6 +8,9 @@ package studentprogramtester;
 
 
 
+import studentprogramtester.controler.BatchTester;
+import studentprogramtester.controler.SingleTester;
+import studentprogramtester.controler.DataObject;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +31,7 @@ public class RunConfig extends JPanel{
     
     DataObject data; //= compilatron6000.Compilatron6000.data;  // moved to updateLabels()
     
-    JButton[] studentButtonArray;
+    public JButton[] studentButtonArray;
     JPanel p;
     
    JFileChooser chooser;

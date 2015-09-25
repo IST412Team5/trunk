@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package studentprogramtester;
+package studentprogramtester.controler;
 
 /*
  * To change this template, choose Tools | Templates
@@ -14,7 +14,7 @@ package studentprogramtester;
 import java.awt.Color;
 import java.io.*;
 import java.util.*;
-import javax.swing.JButton;
+//import javax.swing.JButton;
 
 public class BatchTester
 {
@@ -32,13 +32,13 @@ public  BatchTester()
     String configFileName = "C:\\java\\src\\program-test-242-1\\configBatch.txt";
 //  System.out.println("configFileName: " + configFileName);
     
-    dataObject.setPth("C:\\java\\jdk1.7.0_71\\bin");
+    dataObject.setPth("C:\\java\\jdk1.8.0_60\\bin");
 //  set fixed paths and file names:
     dataObject.setSrcPath("C:\\java\\src\\program-test-242-1\\src\\src-output");
     dataObject.setTestDataPath("C:\\java\\src\\program-test-242-1\\src");
-    dataObject.setArgsFileName(dataObject.getTestDataPath() +  "\\args.txt");
+    dataObject.setArgsFileName(studentprogramtester.Utility.getConfigItem("ArgsTextFile", "C:\\java\\src\\args.txt"));
     //dataObject.setArgsFileName("C:/java/src/args.txt");
-    dataObject.setTestInputFileName( "C:\\java\\src\\TestInput.txt");
+    dataObject.setTestInputFileName(studentprogramtester.Utility.getConfigItem("TestInputTextFile", "C:\\java\\src\\args.txt"));
 /*  make sure set correctly
     System.out.println("path: " + path);
     System.out.println("sourcePath: " + sourcePath);

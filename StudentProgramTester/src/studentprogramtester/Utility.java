@@ -7,12 +7,17 @@ package studentprogramtester;
 
 import java.io.*;
 import java.util.Properties;
-
+import java.util.Base64;
+import java.util.Base64.Encoder;
 /**
  *
  * @author marcc_000
  */
-public class Utility {
+public final class Utility {
+    private Utility()
+    {
+        
+    }
 
     public static void writeFile(String filePath, String fileContents) {
         // add try catch logic...
@@ -97,4 +102,76 @@ public class Utility {
             return true;
         }
     }
+    
+    public static String encryptString(String strSource) throws UnsupportedEncodingException
+    {
+        String retStr;
+        // reverse the string
+        strSource = reverseString(strSource);
+        // convert to an array of bytes
+        byte[] bArr =  strSource.getBytes();
+        Base64.Encoder enc = Base64.getEncoder();
+        
+        bArr = enc.encode(bArr);
+        retStr = new String(bArr);
+        
+        return retStr;
+    }
+    
+    public static String decryptString(String strSource)
+    {
+        // do all the things in encrypt just in reverse
+        //String strReturn = Base64.base64Decode(strSource);
+        Base64.Decoder dec = Base64.getDecoder();
+        
+       byte[] decodedBytes = dec.decode(strSource.getBytes());
+        
+       String strReturn = new String(decodedBytes);
+        
+        //bArr = enc.encode(bArr);
+        strReturn = reverseString(strReturn);
+        return strReturn;
+    }
+    
+    public static boolean AuthenticateUser(String UserID, String Password)
+    {
+        //Boolean bRet;
+        String strOriginalPassword = getConfigItem(UserID, "");
+        if (Utility.isNullOrWhiteSpace(strOriginalPassword))
+        {
+            // no password -- not in configfile, doesn't belong here
+            return false;
+        }
+        // decrypt the password
+        //strOriginalPassword = Utility.decryptString(Password);
+        String encPassword="";
+        try
+        {
+         encPassword = Utility.encryptString(Password);
+        }
+        catch (UnsupportedEncodingException uee)
+        {
+            
+        }
+        
+        return strOriginalPassword.equals(encPassword);       // is our password the same?
+        
+        //return bRet;
+    }
+    
+    
+    public static String reverseString(String source)
+    {
+    int i;
+    int len = source.length();
+    StringBuilder sb = new StringBuilder(len);
+
+    for (i = (len - 1); i >= 0; i--){
+        sb.append(source.charAt(i));
+    }
+
+    return sb.toString();
+    }
+    
+    
 }

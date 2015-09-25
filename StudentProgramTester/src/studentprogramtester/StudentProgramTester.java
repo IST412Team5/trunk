@@ -25,7 +25,7 @@ public final class StudentProgramTester extends JFrame {
         initApp();
     }
 
-    private void initApp() {
+  private void initApp() {
         setLocation(300, 100);                      // place the JFrame at 300,100
         setSize(FRAME_WIDTH, FRAME_HEIGHT);         // set the size of the window to 800x800
         setResizable(false);                        // no resizing permitted, therefore no redrawing needed
@@ -47,19 +47,23 @@ public final class StudentProgramTester extends JFrame {
         tp.setVisible(true);
 
         IOConfigTab ICT = new IOConfigTab();
-        WelcomeTab WT = new WelcomeTab();
+        WelcomeTab WT = new WelcomeTab(tp);
         AppConfig AC = new AppConfig();
         StudentConfigTab SCT = new StudentConfigTab();
-        
+                
         RunConfig RCT = new RunConfig();
         studentprogramtester.App.runCon = RCT;  // to access the panel
         //RunConfiguration RCT = new RunConfiguration();
-        
-        tp.add("Welcome",WT);
+
+        tp.add("Login",WT);
         tp.add("Application Configuration", AC);
         tp.add("Program IO Configuration", ICT);
         tp.add("Roster Configuration", SCT);
         tp.add("Configure and Run", RCT);
+        tp.setEnabledAt(1, false);
+        tp.setEnabledAt(2, false);
+        tp.setEnabledAt(3, false);
+        tp.setEnabledAt(4, false);
         this.add(tp);
         
         this.pack();

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package studentprogramtester;
+package studentprogramtester.controler;
 
 
 import java.io.*;
 import java.util.*;
-import Jtester.*;
+
 
 public class SingleTester{
     

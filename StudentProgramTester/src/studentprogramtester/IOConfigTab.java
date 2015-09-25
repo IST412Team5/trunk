@@ -33,9 +33,7 @@ public class IOConfigTab extends JPanel
         GL.setHgap(5);
         GL.setVgap(5);
         GL.layoutContainer(this);
-        
 
-        
         JLabel lblCmdLineArgs = new JLabel("Command Line Arguments");
         tbCMDLineArgs = new JTextArea();
         tbCMDLineArgs.setText("Factorial 5\nFactorial 10\nArraySearcher 4 4 2 3 1 5\nArraySearcher 3 4 2 3 4 5\nTestProgram");
